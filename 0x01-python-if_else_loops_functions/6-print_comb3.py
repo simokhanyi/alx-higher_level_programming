@@ -10,4 +10,3 @@ for first_digit in range(0, 10):
             print("{}{}".format(first_digit, second_digit))
         else:
             print("{}{}".format(first_digit, second_digit), end=", ")
-
