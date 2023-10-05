@@ -2,15 +2,15 @@
 import sys
 
 if __name__ == "__main__":
-    # Get the command-line arguments excluding the script name
-    arguments = sys.argv[1:]
+    argv = sys.argv[1:]  # Exclude the script name from the arguments
 
-    num_arg = len(arguments)
+    num_args = len(argv)
 
-    print("Number of argument{}: ".format("s" if num_arg != 1 else ""), end="")
-    if num_arg == 0:
-        print(".", end="\n\n")
+    if num_args == 0:
+        print("Number of argument(s): 0.")
+        print(".")
     else:
-        print(":", end="\n\n")
-        for i, arg in enumerate(arguments, start=1):
+        print("Number of argument(s):", num_args)
+        print(":")
+        for i, arg in enumerate(argv, start=1):
             print("{}: {}".format(i, arg))
