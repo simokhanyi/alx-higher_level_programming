@@ -1,25 +1,54 @@
 #!/usr/bin/python3
 
 class Square:
+    """
+    This class represents a square with a given size.
+
+    Attributes:
+        size (int): The size of the square.
+
+    Methods:
+        __init__(self, size=0): Initializes a new Square instance with the given size.
+        area(self): Calculates and returns the area of the square.
+        my_print(self): Prints a textual representation of the square using '#' characters.
+    """
     def __init__(self, size=0):
-        self.size = size
+        """
+        Initializes a new Square instance with the given size.
 
-    @property
-    def size(self):
-        return self.__size
+        Args:
+            size (int): The size (side length) of the square (default is 0).
 
-    @size.setter
-    def size(self, value):
-        if not isinstance(value, int):
+        Raises:
+            TypeError: If the size is not an integer.
+            ValueError: If the size is less than 0.
+
+        Returns:
+            None
+        """
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        elif value < 0:
+        elif size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        self.__size = size
 
     def area(self):
+        """
+        Calculates and returns the area of the square.
+
+        Returns:
+            int: The area of the square (size^2).
+        """
         return self.__size ** 2
 
     def my_print(self):
+        """
+        Prints a textual representation of the square using '#' characters.
+        If the size is 0, it prints an empty line.
+
+        Returns:
+            None
+        """
         if self.__size == 0:
             print()
         else:

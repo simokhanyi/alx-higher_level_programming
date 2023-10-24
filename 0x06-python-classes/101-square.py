@@ -1,7 +1,31 @@
 #!/usr/bin/python3
 
 class Square:
+    """
+    This class represents a square.
+
+    The Square class allows you to create and manipulate square objects with a specified size and position.
+
+    Attributes:
+        size (int): The size (side length) of the square.
+        position (tuple): The position of the square represented as a tuple (x, y).
+
+    Methods:
+        area(): Calculate and return the area of the square.
+        my_print(): Print the square with the '#' character to the standard output.
+    """
+
     def __init__(self, size=0, position=(0, 0)):
+        """
+        Initializes a new Square instance with the given size and position.
+
+        Args:
+            size (int): The size (side length) of the square (default is 0).
+            position (tuple): The position of the square as a tuple of two positive integers (default is (0, 0)).
+
+        Returns:
+            None
+        """
         self.size = size
         self.position = position
 
@@ -11,6 +35,19 @@ class Square:
 
     @size.setter
     def size(self, value):
+        """
+        Setter for the size attribute.
+
+        Args:
+            value (int): The new size to set for the square.
+
+        Raises:
+            TypeError: If the value is not an integer.
+            ValueError: If the value is less than 0.
+
+        Returns:
+            None
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
@@ -23,6 +60,18 @@ class Square:
 
     @position.setter
     def position(self, value):
+        """
+        Setter for the position attribute.
+
+        Args:
+            value (tuple): The new position to set for the square as a tuple of two positive integers.
+
+        Raises:
+            TypeError: If the value is not a tuple or is not of length 2, or if any element is not a positive integer.
+
+        Returns:
+            None
+        """
         if (
             not isinstance(value, tuple)
             or len(value) != 2
@@ -33,9 +82,27 @@ class Square:
         self.__position = value
 
     def area(self):
+        """
+        Calculate and return the area of the square.
+
+        Args:
+            None
+
+        Returns:
+            int: The area of the square.
+        """
         return self.__size ** 2
 
     def my_print(self):
+        """
+        Print the square to the standard output.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         if self.__size == 0:
             print()
         else:
@@ -45,6 +112,15 @@ class Square:
                 print(" " * self.__position[0] + "#" * self.__size)
 
     def __str__(self):
+        """
+        Convert the square to a string representation.
+
+        Args:
+            None
+
+        Returns:
+            str: A string representation of the square.
+        """
         self.my_print()
         return ""
 
