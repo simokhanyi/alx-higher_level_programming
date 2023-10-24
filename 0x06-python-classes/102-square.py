@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Defines a class Square"""
 
 class Square:
     """
@@ -6,9 +7,6 @@ class Square:
 
     Attributes:
         size (float or int): The size (side length) of the square.
-
-    Methods:
-        area(): Calculate and return the area of the square.
     """
 
     def __init__(self, size=0):
@@ -21,9 +19,6 @@ class Square:
         Raises:
             TypeError: If the size is not a number (float or int).
             ValueError: If the size is less than 0.
-
-        Returns:
-            None
         """
         self.size = size
 
@@ -42,9 +37,6 @@ class Square:
         Raises:
             TypeError: If the value is not a number (float or int).
             ValueError: If the value is less than 0.
-
-        Returns:
-            None
         """
         if not isinstance(value, (int, float)):
             raise TypeError("size must be a number")
@@ -55,9 +47,6 @@ class Square:
     def area(self):
         """
         Calculate and return the area of the square.
-
-        Args:
-            None
 
         Returns:
             float or int: The area of the square.

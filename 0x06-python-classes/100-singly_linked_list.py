@@ -1,17 +1,11 @@
 #!/usr/bin/python3
+"""Defines a class Square"""
 
 class Node:
     """
     This class defines a Node for a singly linked list.
 
     The Node class represents a node in the singly linked list with data and a reference to the next node.
-
-    Attributes:
-        data: The data stored in the node.
-        next_node: The reference to the next node.
-
-    Methods:
-        None
     """
 
     def __init__(self, data, next_node=None):
@@ -21,9 +15,6 @@ class Node:
         Args:
             data: The data to be stored in the node.
             next_node: The reference to the next node (default is None).
-
-        Returns:
-            None
         """
         self.data = data
         self.next_node = next_node
@@ -42,9 +33,6 @@ class Node:
 
         Raises:
             TypeError: If the value is not an integer.
-
-        Returns:
-            None
         """
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
@@ -64,9 +52,6 @@ class Node:
 
         Raises:
             TypeError: If the value is not a Node object.
-
-        Returns:
-            None
         """
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
@@ -89,12 +74,6 @@ class SinglyLinkedList:
     def __init__(self):
         """
         Initializes a new SinglyLinkedList instance with an empty list.
-
-        Args:
-            None
-
-        Returns:
-            None
         """
         self.head = None
 
@@ -104,9 +83,6 @@ class SinglyLinkedList:
 
         Args:
             value: The value to be stored in the new node.
-
-        Returns:
-            None
         """
         new_node = Node(value)
         if self.head is None or self.head.data >= value:
@@ -122,9 +98,6 @@ class SinglyLinkedList:
     def __str__(self):
         """
         Converts the linked list to a string representation.
-
-        Args:
-            None
 
         Returns:
             str: A string representation of the linked list.

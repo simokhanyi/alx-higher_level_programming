@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Defines a class Square"""
 
 class Square:
     """
@@ -9,10 +10,6 @@ class Square:
     Attributes:
         size (int): The size (side length) of the square.
         position (tuple): The position of the square represented as a tuple (x, y).
-
-    Methods:
-        area(): Calculate and return the area of the square.
-        my_print(): Print the square with the '#' character to the standard output.
     """
 
     def __init__(self, size=0, position=(0, 0)):
@@ -22,9 +19,6 @@ class Square:
         Args:
             size (int): The size (side length) of the square (default is 0).
             position (tuple): The position of the square as a tuple of two positive integers (default is (0, 0)).
-
-        Returns:
-            None
         """
         self.size = size
         self.position = position
@@ -44,9 +38,6 @@ class Square:
         Raises:
             TypeError: If the value is not an integer.
             ValueError: If the value is less than 0.
-
-        Returns:
-            None
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
@@ -69,8 +60,6 @@ class Square:
         Raises:
             TypeError: If the value is not a tuple or is not of length 2, or if any element is not a positive integer.
 
-        Returns:
-            None
         """
         if (
             not isinstance(value, tuple)
@@ -85,9 +74,6 @@ class Square:
         """
         Calculate and return the area of the square.
 
-        Args:
-            None
-
         Returns:
             int: The area of the square.
         """
@@ -96,12 +82,6 @@ class Square:
     def my_print(self):
         """
         Print the square to the standard output.
-
-        Args:
-            None
-
-        Returns:
-            None
         """
         if self.__size == 0:
             print()
@@ -114,9 +94,6 @@ class Square:
     def __str__(self):
         """
         Convert the square to a string representation.
-
-        Args:
-            None
 
         Returns:
             str: A string representation of the square.

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Defines a class Square"""
 
 class Square:
     """
@@ -6,11 +7,6 @@ class Square:
 
     Attributes:
         size (int): The size of the square.
-
-    Methods:
-        __init__(self, size=0): Initializes a new Square instance with the given size.
-        area(self): Calculates and returns the area of the square.
-        my_print(self): Prints a textual representation of the square using '#' characters.
     """
     def __init__(self, size=0):
         """
@@ -18,13 +14,6 @@ class Square:
 
         Args:
             size (int): The size (side length) of the square (default is 0).
-
-        Raises:
-            TypeError: If the size is not an integer.
-            ValueError: If the size is less than 0.
-
-        Returns:
-            None
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
@@ -45,9 +34,6 @@ class Square:
         """
         Prints a textual representation of the square using '#' characters.
         If the size is 0, it prints an empty line.
-
-        Returns:
-            None
         """
         if self.__size == 0:
             print()
