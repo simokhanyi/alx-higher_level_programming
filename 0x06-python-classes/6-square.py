@@ -19,7 +19,7 @@ class Square:
             position (tuple): The position of the square (default is (0, 0)).
 
         Raises:
-            TypeError: If the size is not an integer or if the position is not a tuple of two positive integers.
+            TypeError: If the size is not an integer or two positive integers.
             ValueError: If the size is less than 0.
         """
         if not isinstance(size, int):
@@ -49,7 +49,7 @@ class Square:
     def my_print(self):
         """
         Prints a textual representation of the square using '#' characters.
-        If the size is 0, it prints an empty line, and the position is used to add leading spaces.
+        If the size is 0, it prints an empty line, used to add leading spaces.
         """
         if self.__size == 0:
             print()
