@@ -30,7 +30,7 @@ class Rectangle:
 
     """
     number_of_instances = 0
-    print_symbol = "#"
+    print_symbol = "#
 
     def __init__(self, width=0, height=0):
         """
@@ -102,7 +102,7 @@ class Rectangle:
 
     def area(self):
         """
-        Calculates the area of the rectangle.
+        Calculates and returns the area of the rectangle.
 
         Returns:
             int: The area of the rectangle.
@@ -111,7 +111,7 @@ class Rectangle:
 
     def perimeter(self):
         """
-        Calculates the perimeter of the rectangle.
+        Calculates and returns the perimeter of the rectangle.
 
         Returns:
             int: The perimeter of the rectangle.
@@ -141,15 +141,15 @@ class Rectangle:
         """
         return f"{self.__class__.__name__}({self.__width}, {self.__height})"
 
-        def __del__(self):
+    def __del__(self):
         """
         Destructor method that gets called when an instance is deleted.
         """
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
-        @ staticmethod
-        def bigger_or_equal(rect_1, rect_2):
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
         """
         Compares two rectangles.
 
