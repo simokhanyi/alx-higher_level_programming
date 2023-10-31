@@ -124,7 +124,8 @@ class Rectangle:
         """
         if self.__w == 0 or self.__h == 0:
             return ""
-        return '\n'.join([str(self.print_s) * self.__w for _ in range(self.__h)])
+        symbol_line = str(self.print_symbol) * self.__w
+        return '\n'.join([symbol_line for _ in range(self.__h)])
 
     def __repr__(self):
         """
