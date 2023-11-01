@@ -1,0 +1,19 @@
+# Test cases for the add_integer function
+
+# Test case 1: Adding two integers
+1, 2 => 3
+
+# Test case 2: Adding one integer and one negative integer
+100, -2 => 98
+
+# Test case 3: Adding an integer and the default value (98)
+2 => 100
+
+# Test case 4: Adding two floating-point numbers (casting to integers)
+100.3, -2 => 98
+
+# Test case 5: Adding an integer and a string (should raise TypeError)
+4, "School" => "a must be an integer or b must be an integer"
+
+# Test case 6: Adding None (should raise TypeError)
+None => "a must be an integer or b must be an integer"

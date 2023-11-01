@@ -1,0 +1,31 @@
+# Test cases for the print_square function
+
+# Test case 1: Printing a square of size 4
+4 => 
+####
+####
+####
+####
+
+# Test case 2: Printing a square of size 10
+10 => 
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+# Test case 3: Printing an empty square (size 0)
+0 => 
+
+# Test case 4: Printing a square of size 1
+1 => 
+#
+
+# Test case 5: Providing a negative size (should raise ValueError)
+-1 => "size must be >= 0"
