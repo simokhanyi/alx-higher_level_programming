@@ -1,0 +1,26 @@
+# Test case for the MyList class
+
+# Test case 1: Test print_sorted method
+Input:
+[1, 4, 2, 3, 5]
+Expected Output:
+[1, 2, 3, 4, 5]
+
+# Test case 2: Test that the original list remains unchanged
+Input:
+[1, 4, 2, 3, 5]
+After calling print_sorted:
+Expected Output:
+[1, 4, 2, 3, 5]
+
+# Test case 3: Empty list
+Input:
+[]
+Expected Output:
+[]
+
+# Test case 4: Single-element list
+Input:
+[7]
+Expected Output:
+[7]

@@ -1,0 +1,39 @@
+# Test cases for BaseGeometry class
+
+# Test case 1: Valid integer validation
+Input:
+bg = BaseGeometry()
+bg.integer_validator("my_int", 12)
+Expected Output:
+No exceptions raised
+
+# Test case 2: Valid integer validation
+Input:
+bg = BaseGeometry()
+bg.integer_validator("width", 89)
+Expected Output:
+No exceptions raised
+
+# Test case 3: Invalid integer validation (TypeError)
+Input:
+bg = BaseGeometry()
+try:
+    bg.integer_validator("name", "John")
+Expected Output:
+[TypeError] name must be an integer
+
+# Test case 4: Invalid integer validation (ValueError)
+Input:
+bg = BaseGeometry()
+try:
+    bg.integer_validator("age", 0)
+Expected Output:
+[ValueError] age must be greater than 0
+
+# Test case 5: Invalid integer validation (ValueError)
+Input:
+bg = BaseGeometry()
+try:
+    bg.integer_validator("distance", -4)
+Expected Output:
+[ValueError] distance must be greater than 0
