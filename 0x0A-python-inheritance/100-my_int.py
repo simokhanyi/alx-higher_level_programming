@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""
+Module with a class Myint
+"""
+
+
 class MyInt(int):
     """
     A class that represents an integer with inverted == and != operators.
@@ -13,7 +19,7 @@ class MyInt(int):
         Returns:
             bool: True if not equal, False if equal.
         """
-        return super().__ne__(other)
+        return not super().__eq__(other)
 
     def __ne__(self, other):
         """
@@ -25,7 +31,7 @@ class MyInt(int):
         Returns:
             bool: True if equal, False if not equal.
         """
-        return super().__eq__(other)
+        return not super().__ne__(other)
 
 # Test the code
 
