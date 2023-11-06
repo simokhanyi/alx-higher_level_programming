@@ -7,12 +7,12 @@ Module with class Rectangle
 
 class BaseGeometry:
     """
-    A class that represents a basic geometry object.
+    A class that defines basic geometric operations.
     """
 
     def area(self):
         """
-        Calculate the area of the geometry object.
+        Calculate the area of the geometric shape.
 
         Raises:
             Exception: This method is not implemented.
@@ -21,7 +21,7 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """
-        Validate the value as an integer.
+        Validate if a value is an integer and greater than 0.
 
         Args:
             name (str): The name of the value.
@@ -39,7 +39,7 @@ class BaseGeometry:
 
 class Rectangle(BaseGeometry):
     """
-    A class that represents a rectangle, inheriting from BaseGeometry.
+    A class that represents a rectangle and inherits from BaseGeometry.
     """
 
     def __init__(self, width, height):
@@ -58,3 +58,17 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
+
+    def area(self):
+        """
+        Calculate and return the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.__width * self.__height
+
+
+if __name__ == '__main__':
+    r = Rectangle(3, 5)
+    print(r.area())
