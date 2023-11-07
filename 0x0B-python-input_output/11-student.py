@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
 Student class with JSON methods
 """
 
@@ -21,11 +21,11 @@ class Student:
 
     def to_json(self, attrs=None):
         """
-        Return a dictionary representation of the Student instance based on specified attributes.
+        Return a dictionary representation of the Student instance.
 
         :param attrs: Optional list of attributes to include in the dictionary.
         :type attrs: list
-        :return: A dictionary containing the specified attributes of the Student instance.
+        :return: A dictionary containing the specified attributes of instance.
         :rtype: dict
         """
         if not isinstance(attrs, list) or \
@@ -37,9 +37,9 @@ class Student:
 
     def reload_from_json(self, json):
         """
-        Replace attributes of the Student instance with values from a dictionary.
+        Replace attributes of Student instance with values from dictionary.
 
-        :param json: A dictionary with attribute-value pairs to update the Student instance.
+        :param json: A dictionary with attribute-value pairs instance.
         :type json: dict
         """
         for i in json:
