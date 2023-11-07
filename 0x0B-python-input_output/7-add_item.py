@@ -5,32 +5,27 @@ Module
 
 
 import sys
-from save_to_json_file import save_to_json_file
-from load_from_json_file import load_from_json_file
+import json
 
 
-def add_and_save_items_to_file(args):
-    """
-    Adds command-line arguments to Python list and saves it to a file as JSON.
+def save_to_json_file(my_obj, filename):
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(my_obj, file)
 
-    :param args: A list of command-line arguments.
-    """
+def load_from_json_file(filename):
     try:
-        # Load existing data from the file, if it exists
-        existing_data = load_from_json_file("add_item.json")
+        with open(filename, 'r', encoding='utf-8') as file:
+            return json.load(file)
     except (FileNotFoundError, json.decoder.JSONDecodeError):
-        existing_data = []
-
-    # Add the new arguments to the list
-    existing_data.extend(args)
-
-    # Save the updated list to the file
-    save_to_json_file(existing_data, "add_item.json")
+        return []
 
 
 if __name__ == "__main__":
-    # Get command-line arguments excluding the script name
-    args = sys.argv[1:]
+    try:
+        json_list = load_from_json_file('add_item.json')
+    except FileNotFoundError:
+        json_list = []
 
-    # Add and save the arguments to the file
-    add_and_save_items_to_file(args)
+    for i in range(1, len(sys.argv)):
+        json_list.append(sys.argv[i])
+    save_to_json_file(json_list, "add_item.json")
