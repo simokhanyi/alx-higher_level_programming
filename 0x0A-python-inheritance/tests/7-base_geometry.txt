@@ -1,39 +1,25 @@
 # Test cases for BaseGeometry class
 
-# Test case 1: Valid integer validation
-# Input:
-bg = BaseGeometry()
-bg.integer_validator("my_int", 12)
-# Expected Output:
-# No exceptions raised
+# Import the BaseGeometry class from the main implementation
+from base_geometry import BaseGeometry
 
-# Test case 2: Valid integer validation
-# Input:
-bg = BaseGeometry()
-bg.integer_validator("width", 89)
-# Expected Output:
-# No exceptions raised
+# Create an instance of BaseGeometry
+geometry = BaseGeometry()
 
-# Test case 3: Invalid integer validation (TypeError)
-# Input:
-bg = BaseGeometry()
+# Test the area method (should raise an exception)
 try:
-    bg.integer_validator("name", "John")
-# Expected Output:
-# [TypeError] name must be an integer
+    area = geometry.area()
+except Exception as e:
+    print(f"Exception raised: {e}")
 
-# Test case 4: Invalid integer validation (ValueError)
-# Input:
-bg = BaseGeometry()
+# Test the integer_validator method (should raise a ValueError)
 try:
-    bg.integer_validator("age", 0)
-# Expected Output:
-# [ValueError] age must be greater than 0
+    geometry.integer_validator("test_value", -5)
+except ValueError as ve:
+    print(f"ValueError raised: {ve}")
 
-# Test case 5: Invalid integer validation (ValueError)
-# Input:
-bg = BaseGeometry()
+# Test the integer_validator method (should raise a TypeError)
 try:
-    bg.integer_validator("distance", -4)
-# Expected Output:
-# [ValueError] distance must be greater than 0
+    geometry.integer_validator("test_value", "string")
+except TypeError as te:
+    print(f"TypeError raised: {te}")
