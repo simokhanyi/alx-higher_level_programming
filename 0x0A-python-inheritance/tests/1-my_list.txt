@@ -1,37 +1,26 @@
-# Test case for the MyList class
+# MyList Class Test
 
-# Test case 1: Test print_sorted method
-# Input:
-my_list = MyList()
-my_list.append(1)
-my_list.append(4)
-my_list.append(2)
-my_list.append(3)
-my_list.append(5)
+from mylist import MyList
+
+# Create an instance of MyList
+my_list = MyList([3, 1, 2])
+
+# Test the print_sorted() method
+my_list.print_sorted()
+
 # Expected Output:
-# [1, 2, 3, 4, 5]
+# [1, 2, 3]
 
-# Test case 2: Test that the original list remains unchanged
-# Input:
-my_list = MyList()
-my_list.append(1)
-my_list.append(4)
-my_list.append(2)
-my_list.append(3)
-my_list.append(5)
-# After calling print_sorted:
-# Expected Output:
-# [1, 4, 2, 3, 5]
+# Test an empty list
+empty_list = MyList([])
+empty_list.print_sorted()
 
-# Test case 3: Empty list
-# Input:
-my_list = MyList()
 # Expected Output:
 # []
 
-# Test case 4: Single-element list
-# Input:
-my_list = MyList()
-my_list.append(7)
+# Test a list with strings
+string_list = MyList(["apple", "banana", "cherry"])
+string_list.print_sorted()
+
 # Expected Output:
-# [7]
+# ['apple', 'banana', 'cherry']
