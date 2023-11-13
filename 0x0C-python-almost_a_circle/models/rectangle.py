@@ -29,6 +29,7 @@ class Rectangle(Base):
             x (int, optional): X-coordinate of the rectangle (default is 0).
             y (int, optional): Y-coordinate of the rectangle (default is 0).
         """
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x

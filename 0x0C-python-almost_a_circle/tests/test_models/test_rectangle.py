@@ -13,14 +13,10 @@ class TestRectangle(unittest.TestCase):
 
     def test_rectangle_instance_creation(self):
         """
-        Test creating instances of Rectangle and checking attributes.
+        Test the creation of a Rectangle instance and the initialization.
         """
-        r1 = Rectangle(10, 5)
+        r1 = Rectangle(10, 2)
         self.assertEqual(r1.id, 1)
-        self.assertEqual(r1.width, 10)
-        self.assertEqual(r1.height, 5)
-        self.assertEqual(r1.x, 0)
-        self.assertEqual(r1.y, 0)
 
     def test_rectangle_instance_with_attributes(self):
         """

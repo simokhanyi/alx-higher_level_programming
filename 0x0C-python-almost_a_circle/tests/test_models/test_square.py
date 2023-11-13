@@ -13,6 +13,13 @@ class TestSquare(unittest.TestCase):
 
     def test_square_instance_creation(self):
         """
+        Test the creation of a Square instance and the initialization.
+        """
+        s1 = Square(5)
+        self.assertEqual(s1.id, 1)
+
+    def test_square_instance_creation(self):
+        """
         Test creating instances of Square and checking attributes.
         """
         s1 = Square(5)

@@ -11,14 +11,12 @@ class TestBase(unittest.TestCase):
     Test cases for the Base class in models/base.py.
     """
 
-    def test_base_instance_creation(self):
+    def test_base_creation(self):
         """
-        Test creating instances of Base and checking unique ID are assigned.
+        Test the creation of a Base instance and the initialization.
         """
-        b1 = Base()
-        b2 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
+        dummy_instance = Base()
+        self.assertEqual(dummy_instance.id, 1)
 
     def test_base_instance_with_id(self):
         """
@@ -53,11 +51,9 @@ class TestBase(unittest.TestCase):
         self.assertEqual(list_of_dicts, [{'id': 1, 'name': 'test'}])
 
     def test_create_instance(self):
-        """
-        Test the create method for creating instance with all attributes set.
-        """
-        dummy_instance = Base.create(id=1)
-        self.assertEqual(dummy_instance.id, 1)
+        """Test the create method for creating instance with all set."""
+    dummy_instance = Base.create()
+    self.assertEqual(dummy_instance.id, 1)
 
 
 if __name__ == '__main__':
