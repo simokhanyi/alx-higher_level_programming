@@ -2,9 +2,10 @@
 """
 Module with rectangle
 """
+from models.base import Base
 
 
-class Rectangle:
+class Rectangle(Base):
     """
     This class defines a rectangle based on width, height, x, and y.
 
@@ -179,3 +180,29 @@ class Rectangle:
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height
         )
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Writes the JSON string representation of list_objs to a file.
+
+        Args:
+        - list_objs (list): List of instances inheriting from Base.
+
+        Returns:
+        - None
+        """
+        filename = f"{cls.__name__}.json"
+        json_list = []
+        if list_objs is not None:
+            json_list = [obj.to_dictionary() for obj in list_objs]
+
+        with open(filename, "w") as file:
+            file.write(Base.to_json_string(json_list))
+
+    def to_csv(self):
+        return [self.id, self.width, self.height, self.x, self.y]
+
+    @classmethod
+    def create_from_csv(cls, row):
+        return cls(*map(int, row))
