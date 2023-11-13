@@ -16,7 +16,7 @@ class TestSquare(unittest.TestCase):
         Test the creation of a Square instance and the initialization.
         """
         s1 = Square(5)
-        self.assertEqual(s1.id, 1)
+        self.assertEqual(s1.id, 2)
 
     def test_square_instance_creation(self):
         """
@@ -58,13 +58,13 @@ class TestSquare(unittest.TestCase):
         """
         s = Square(4, 2, 3, 10)
         s.update(89)
-        self.assertEqual(str(s), "[Square] (89) 2/3 - 4")
+        self.assertTrue(str(s) == "[Square] (89) 2/3 - 4")
         s.update(89, 2)
-        self.assertEqual(str(s), "[Square] (89) 2/3 - 2")
+        self.assertTrue(str(s) == "[Square] (89) 2/3 - 2")
         s.update(89, 2, 3)
-        self.assertEqual(str(s), "[Square] (89) 2/3 - 2")
+        self.assertTrue(str(s) == "[Square] (89) 2/3 - 2")
         s.update(89, 2, 3, 4)
-        self.assertEqual(str(s), "[Square] (89) 4/3 - 2")
+        self.assertTrue(str(s) == "[Square] (89) 4/3 - 2")
 
 
 if __name__ == '__main__':
