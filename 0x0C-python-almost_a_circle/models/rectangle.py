@@ -16,9 +16,6 @@ class Rectangle(Base):
         y (int): Y-coordinate of the rectangle.
     """
 
-    # Class variable to keep track of the next available ID
-    __nb_objects = 0
-
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initializes a Rectangle instance.
@@ -34,13 +31,6 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-
-        # Check if id is provided, if not, assign a new unique id
-        if id is None:
-            Rectangle._Rectangle__nb_objects += 1
-            self.id = Rectangle._Rectangle__nb_objects
-        else:
-            self.id = id
 
     @property
     def width(self):
@@ -115,24 +105,6 @@ class Rectangle(Base):
         """
         Prints the Rectangle instance using the character # in stdout.
         """
-        for _ in range(self.__height):
-            print("#" * self.__width)
-
-    def __str__(self):
-        """
-        Returns a string representation of the Rectangle instance.
-
-        Returns:
-            str: String representation of the Rectangle.
-        """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.__x, self.__y, self.__width, self.__height
-        )
-
-    def display(self):
-        """
-        Prints the Rectangle instance using the character # in stdout.
-        """
         for _ in range(self.__y):
             print()
 
@@ -181,29 +153,3 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height
         )
-
-    @classmethod
-    def save_to_file(cls, list_objs):
-        """
-        Writes the JSON string representation of list_objs to a file.
-
-        Args:
-        - list_objs (list): List of instances inheriting from Base.
-
-        Returns:
-        - None
-        """
-        filename = f"{cls.__name__}.json"
-        json_list = []
-        if list_objs is not None:
-            json_list = [obj.to_dictionary() for obj in list_objs]
-
-        with open(filename, "w") as file:
-            file.write(Base.to_json_string(json_list))
-
-    def to_csv(self):
-        return [self.id, self.width, self.height, self.x, self.y]
-
-    @classmethod
-    def create_from_csv(cls, row):
-        return cls(*map(int, row))

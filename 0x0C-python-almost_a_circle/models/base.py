@@ -32,49 +32,27 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    @staticmethod
-    def draw(list_rectangles, list_squares):
+    @classmethod
+    def create(cls, **dictionary):
         """
-        Draws all the Rectangles and Squares using Turtle graphics.
+        Returns an instance with all attributes already set.
 
         Args:
-        - list_rectangles (list): List of Rectangle instances.
-        - list_squares (list): List of Square instances.
+        - **dictionary: Double pointer to a dictionary.
 
         Returns:
-        - None
+        - cls: Instance with all attributes set.
         """
-        turtle.clear()
-        turtle.speed(2)
-        turtle.hideturtle()
+        if cls.__name__ == "Rectangle":
+            dummy_instance = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy_instance = cls(1)
+        else:
+            return None
 
-        for rect in list_rectangles:
-            turtle.penup()
-            turtle.goto(rect.x, rect.y)
-            turtle.pendown()
-            turtle.forward(rect.width)
-            turtle.right(90)
-            turtle.forward(rect.height)
-            turtle.right(90)
-            turtle.forward(rect.width)
-            turtle.right(90)
-            turtle.forward(rect.height)
-            turtle.right(90)
-
-        for square in list_squares:
-            turtle.penup()
-            turtle.goto(square.x, square.y)
-            turtle.pendown()
-            turtle.forward(square.size)
-            turtle.right(90)
-            turtle.forward(square.size)
-            turtle.right(90)
-            turtle.forward(square.size)
-            turtle.right(90)
-            turtle.forward(square.size)
-            turtle.right(90)
-
-        turtle.exitonclick()
+        if dictionary:
+            dummy_instance.update(**dictionary)
+        return dummy_instance
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -103,8 +81,8 @@ class Base:
         - None
         """
         filename = f"{cls.__name__}.json"
+        list_dict = [obj.to_dictionary() for obj in list_objs]
         with open(filename, "w") as file:
-            list_dict = [obj.to_dictionary() for obj in list_objs]
             file.write(cls.to_json_string(list_dict))
 
     @staticmethod
@@ -121,27 +99,6 @@ class Base:
         if json_string is None or json_string == '':
             return []
         return json.loads(json_string)
-
-    @classmethod
-    def create(cls, **dictionary):
-        """
-        Returns an instance with all attributes already set.
-
-        Args:
-        - **dictionary: Double pointer to a dictionary.
-
-        Returns:
-        - cls: Instance with all attributes set.
-        """
-        if cls.__name__ == "Rectangle":
-            dummy_instance = cls(1, 1)
-        elif cls.__name__ == "Square":
-            dummy_instance = cls(1)
-        else:
-            return None
-
-        dummy_instance.update(**dictionary)
-        return dummy_instance
 
     @classmethod
     def load_from_file(cls):

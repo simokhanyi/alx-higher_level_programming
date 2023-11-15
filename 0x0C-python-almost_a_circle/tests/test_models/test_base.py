@@ -8,7 +8,7 @@ from models.base import Base
 
 class TestBase(unittest.TestCase):
     """
-    Test cases for the Base class in models/base.py.
+    Test cases for the Base class in base.py.
     """
 
     def test_base_creation(self):

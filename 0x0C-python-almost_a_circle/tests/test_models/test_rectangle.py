@@ -8,7 +8,7 @@ from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
     """
-    Test cases for the Rectangle class in models/rectangle.py.
+    Test cases for the Rectangle class in rectangle.py.
     """
 
     def test_rectangle_instance_creation(self):
@@ -58,6 +58,21 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(r), "[Rectangle] (89) 4/2 - 2/3")
         r.update(89, 2, 3, 4, 5)
         self.assertEqual(str(r), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_rectangle_to_dictionary(self):
+        """
+        Test the to_dictionary method for Rectangle.
+        """
+        r = Rectangle(4, 6, 1, 2, 10)
+        r_dictionary = r.to_dictionary()
+        expected_dict = {
+            'id': 10,
+            'width': 4,
+            'height': 6,
+            'x': 1,
+            'y': 2
+        }
+        self.assertDictEqual(r_dictionary, expected_dict)
 
 
 if __name__ == '__main__':
