@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module that test base
+Module that tests Base
 """
 import unittest
 from models.base import Base
@@ -20,7 +20,7 @@ class TestBase(unittest.TestCase):
 
     def test_base_instance_with_id(self):
         """
-        Test creating instance with a specified id.
+        Test creating an instance with a specified ID.
         """
         b = Base(100)
         self.assertEqual(b.id, 100)
@@ -51,9 +51,16 @@ class TestBase(unittest.TestCase):
         self.assertEqual(list_of_dicts, [{'id': 1, 'name': 'test'}])
 
     def test_create_instance(self):
-        """Test the create method for creating instance with all set."""
-    dummy_instance = Base.create()
-    self.assertEqual(dummy_instance.id, 1)
+        """
+        Test the create method for creating instances with all set.
+        """
+        dummy_instance = Base.create()
+        self.assertEqual(dummy_instance.id, 1, "Default ID should be 1")
+
+        # Additional test for create method with specified attributes
+        attributes = {'id': 5}
+        instance = Base.create(**attributes)
+        self.assertEqual(instance.id, 5, "ID should be set to 5")
 
 
 if __name__ == '__main__':

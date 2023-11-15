@@ -18,13 +18,13 @@ class TestSquare(unittest.TestCase):
         s1 = Square(5)
         self.assertEqual(s1.id, 2)
 
-    def test_square_instance_creation(self):
+    def test_square_instance_with_default_attributes(self):
         """
-        Test creating instances of Square and checking attributes.
+        Test creating instances of Square with default attributes, checking ID.
         """
-        s1 = Square(5)
+        s1 = Square(6)
         self.assertEqual(s1.id, 1)
-        self.assertEqual(s1.size, 5)
+        self.assertEqual(s1.size, 6)
         self.assertEqual(s1.x, 0)
         self.assertEqual(s1.y, 0)
 

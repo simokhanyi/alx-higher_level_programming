@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module that test rectangle
+Module that tests Rectangle
 """
 import unittest
 from models.rectangle import Rectangle
