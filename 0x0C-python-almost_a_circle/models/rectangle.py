@@ -2,12 +2,10 @@
 """
 Module that tests Rectangle
 """
-import unittest
 from models.base import Base
-from models.rectangle import Rectangle
 
 
-class TestRectangle(unittest.TestCase):
+class TestRectangle(Base):
     """
     Test cases for the Rectangle class in rectangle.py.
     """
