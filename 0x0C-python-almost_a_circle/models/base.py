@@ -2,9 +2,10 @@
 """
 Module with base
 """
-import json
+from json import dumps, loads
 import csv
 import turtle
+
 
 
 class Base:
@@ -12,8 +13,8 @@ class Base:
     Base class for managing id attribute in future classes.
 
     Attributes:
-    - __nb_objects (int): Private class attribute to keep track of objects.
-    - id (int): Public instance attribute representing the unique identifier.
+        __nb_objects (int): Private class attribute to keep track of objects.
+        id (int): Public instance attribute representing the unique identifier.
     """
 
     __nb_objects = 0
@@ -23,14 +24,74 @@ class Base:
         Constructor for Base class.
 
         Args:
-        - id (int, optional): Assigns public instance attribute id with value.
-          Otherwise, increments __nb_objects and assigns the new value to id.
+            id (int, optional): Assigns public instance attribute id.
+            with value, Otherwise, increments __nb_objects and.
+            assigns the new value to id.
         """
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Draws all the Rectangles and Squares using Turtle graphics.
+
+        Args:
+            list_rectangles (list): List of Rectangle instances.
+            list_squares (list): List of Square instances.
+
+        Returns:
+            None
+        """
+        screen = turtle.Screen()
+        screen.title("Rectangles and Squares")
+        screen.bgcolor("white")
+
+        # Create Turtle object
+        pen = turtle.Turtle()
+        pen.speed(1)
+        pen.penup()
+
+        for rect in list_rectangles:
+            pen.goto(rect.x, rect.y)
+            pen.pendown()
+            pen.forward(rect.width)
+            pen.right(90)
+            pen.forward(rect.height)
+            pen.right(90)
+            pen.forward(rect.width)
+            pen.right(90)
+            pen.forward(rect.height)
+            pen.right(90)
+            pen.penup()
+
+        for square in list_squares:
+            pen.goto(square.x, square.y)
+            pen.pendown()
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.right(90)
+            pen.penup()
+
+        turtle.done()
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        Returns the JSON string representation of list_dictionaries.
+
+        Args:
+            list_dictionaries (list): List of dictionaries to be represented.
+
+        Returns:
+            str: JSON string representation of list_dictionaries.
+        """
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def create(cls, **dictionary):
