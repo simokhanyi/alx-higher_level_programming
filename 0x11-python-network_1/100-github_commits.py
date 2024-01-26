@@ -15,11 +15,10 @@ def fetch_github_commits(repo, owner):
 
     try:
         commits = response.json()
-        for commit in commits:
-            sha = commit.get('sha')
-            author_name = commit.get('commit',
-                    {}).get('author', {}).get('name') or 'Unknown'
-            print(f"{sha}: {author_name}")
+        for com in commits:
+            sha = com.get('sha')
+            n = com.get('commit', {}).get('author', {}).get('name', 'Unknown')
+            print(f"{sha}: {n}")
     except ValueError:
         print("Not a valid JSON")
 
