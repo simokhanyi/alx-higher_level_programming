@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Sends a request to a URL and displays the body of the response,
-handling HTTP errors
+ihandling HTTP errors
 """
 import requests
 import sys
