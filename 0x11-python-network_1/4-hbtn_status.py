@@ -1,11 +1,19 @@
 #!/usr/bin/python3
-""" fetches https://alx-intranet.hbtn.io/status """
+"""
+Fetches https://alx-intranet.hbtn.io/status using the requests package
+"""
 import requests
 
-url = 'https://alx-intranet.hbtn.io/status'
 
-response = requests.get(url)
+def fetch_status(url):
+    response = requests.get(url)
+    return response.text
 
-print("Body response:")
-print(f"    - type: {type(response.text)}")
-print(f"    - content: {response.text}")
+
+if __name__ == "__main__":
+    url = 'https://alx-intranet.hbtn.io/status'
+    content = fetch_status(url)
+
+    print("Body response:")
+    print("\t- type:", type(content))
+    print("\t- content:", content)
