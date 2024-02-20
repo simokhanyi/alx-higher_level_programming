@@ -1,13 +1,12 @@
 #!/usr/bin/node
 
-
 const request = require('request');
 
 /**
  * Display the status code of a GET request to a specified URL.
  * @param {string} url - The URL to request.
  */
-function displayStatusCode(url) {
+function displayStatusCode (url) {
   // Make a GET request to the specified URL
   request.get(url, (error, response) => {
     // Handle error if occurred during request

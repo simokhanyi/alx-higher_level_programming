@@ -1,13 +1,12 @@
 #!/usr/bin/node
 
-
 const request = require('request');
 
 /**
  * Prints the title of a Star Wars movie where the episode number matches a given integer.
  * @param {number} movieId - The episode number of the Star Wars movie.
  */
-function printMovieTitle(movieId) {
+function printMovieTitle (movieId) {
   const url = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
   // Make a GET request to the Star Wars API
@@ -29,4 +28,3 @@ const movieId = process.argv[2];
 
 // Call the function to print the title of the Star Wars movie
 printMovieTitle(movieId);
-

@@ -1,6 +1,5 @@
 #!/usr/bin/node
 
-
 const request = require('request');
 const fs = require('fs');
 
@@ -9,7 +8,7 @@ const fs = require('fs');
  * @param {string} url - The URL of the webpage to request.
  * @param {string} filePath - The file path to store the response body.
  */
-function requestAndStore(url, filePath) {
+function requestAndStore (url, filePath) {
   // Make a GET request to the specified URL
   request.get(url, (error, response, body) => {
     // Handle error if occurred during request

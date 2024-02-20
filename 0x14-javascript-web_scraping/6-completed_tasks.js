@@ -1,13 +1,12 @@
 #!/usr/bin/node
 
-
 const request = require('request');
 
 /**
  * Computes the number of tasks completed by user id.
  * @param {string} apiUrl - The API URL to fetch the tasks data.
  */
-function computeCompletedTasks(apiUrl) {
+function computeCompletedTasks (apiUrl) {
   // Make a GET request to the specified API URL
   request.get(apiUrl, (error, response, body) => {
     // Handle error if occurred during request

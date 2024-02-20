@@ -1,13 +1,12 @@
 #!/usr/bin/node
 
-
 const request = require('request');
 
 /**
  * Prints all characters of a Star Wars movie.
  * @param {number} movieId - The ID of the Star Wars movie.
  */
-function printMovieCharacters(movieId) {
+function printMovieCharacters (movieId) {
   const apiUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
   // Make a GET request to the specified Star Wars API endpoint
